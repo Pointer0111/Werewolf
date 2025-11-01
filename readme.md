@@ -116,9 +116,22 @@ pip install -r requirements.txt
 
 4. 配置环境变量：
 ```bash
+# 复制示例配置文件
 cp .env.example .env
+
 # 编辑 .env 文件，配置数据库、Redis等信息
+# Windows: notepad .env
+# Linux/Mac: nano .env 或 vim .env
 ```
+
+**配置文件位置：** `backend/.env`
+
+**需要配置的项目：**
+- `DATABASE_URL`: 数据库连接字符串（PostgreSQL 或 MySQL）
+- `REDIS_HOST`: Redis 服务器地址（默认 localhost）
+- `REDIS_PORT`: Redis 端口（默认 6379）
+- `SECRET_KEY`: JWT 密钥（生产环境必须更改）
+- `CORS_ORIGINS`: 前端地址列表（允许跨域的域名）
 
 5. 初始化数据库：
 ```bash

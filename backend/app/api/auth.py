@@ -5,6 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from pydantic import BaseModel, EmailStr
+from typing import Optional
 from datetime import timedelta
 
 from app.core.database import get_db
@@ -20,7 +21,7 @@ class UserRegister(BaseModel):
     username: str
     email: EmailStr
     password: str
-    nickname: str = None
+    nickname: Optional[str] = None
 
 
 class UserLogin(BaseModel):
@@ -37,8 +38,8 @@ class UserResponse(BaseModel):
     id: int
     username: str
     email: str
-    nickname: str = None
-    avatar: str = None
+    nickname: Optional[str] = None
+    avatar: Optional[str] = None
     
     class Config:
         from_attributes = True

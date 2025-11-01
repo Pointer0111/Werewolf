@@ -4,6 +4,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
+from typing import Optional
 from app.core.database import get_db
 from app.api.auth import get_current_user
 from app.models.user import User
@@ -15,8 +16,8 @@ class UserResponse(BaseModel):
     id: int
     username: str
     email: str
-    nickname: str = None
-    avatar: str = None
+    nickname: Optional[str] = None
+    avatar: Optional[str] = None
     total_games: int
     win_games: int
     win_rate: float
@@ -26,8 +27,8 @@ class UserResponse(BaseModel):
 
 
 class UserUpdate(BaseModel):
-    nickname: str = None
-    avatar: str = None
+    nickname: Optional[str] = None
+    avatar: Optional[str] = None
 
 
 @router.get("/me", response_model=UserResponse)

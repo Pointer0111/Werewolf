@@ -39,6 +39,8 @@ env/
 *.db
 *.sqlite
 *.sqlite3
+# 开发数据库（保留注释以便查看）
+# werewolf.db
 
 # 日志
 *.log
